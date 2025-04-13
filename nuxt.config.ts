@@ -13,7 +13,6 @@ export default defineNuxtConfig({
 	},
 	modules: [
 		'@nuxt/image',
-		'@nuxtjs/seo',
 		'@nuxt/scripts',
 		'@vueuse/nuxt',
 		'nuxt-security',
@@ -97,7 +96,7 @@ export default defineNuxtConfig({
 
 	googleFonts: {
 		families: {
-			Tinos: [400,500, 600],
+			Tinos: [400, 500, 600],
 			'Alumni+Sans+Pinstripe': [400, 700],
 		},
 		display: 'swap', // optional but recommended
