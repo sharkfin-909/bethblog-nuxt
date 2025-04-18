@@ -49,7 +49,7 @@ const handleLinkClick = () => {
 	<header ref="navigationRef" class=" sticky top-0 z-50 w-full bg-background shadow-md text-foreground">
 		<Container class="flex items-center justify-between p-4">
 			<NuxtLink to="/" class="flex-shrink-0">
-				<img :src="lightLogoUrl" alt="Logo" class="w-[400px] h-auto dark:hidden" width="400" height="200" />
+				<img :src="lightLogoUrl" alt="Logo" class="w-[200px] md:w-[300px] h-auto dark:hidden" width="400" height="200" />
 
 			</NuxtLink>
 
