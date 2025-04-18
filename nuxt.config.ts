@@ -1,4 +1,15 @@
 export default defineNuxtConfig({
+	devServer: {
+		host: '0.0.0.0', // allow access from network
+		port: 3000,
+	},
+	vite: {
+		server: {
+			hmr: {
+				host: '192.168.101.252', // replace with your actual IP
+			},
+		},
+	},
 	components: [
 		{ path: '~/components', pathPrefix: false },
 		{ path: '~/components/block', pathPrefix: false },

@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-	--background-color: #ffffff;
+	--background-color: #ede8dd;
 	--foreground-color: #42566e;
 	--background-color-muted: color-mix(in srgb, var(--background-color), var(--foreground-color) 10%);
 	--accent-color: #6644ff;
-	--background-variant-color: #172940;
-	--accent-color-dark: color-mix(in srgb, var(--accent-color), black 40%);
-	--accent-color-soft: color-mix(in srgb, var(--accent-color), white 20%);
-	--accent-color-light: color-mix(in srgb, var(--accent-color), white 90%);
+	--background-variant-color: #dcd7ce;
+	--accent-color-dark: color-mix(in srgb, var(--accent-color), rgb(125, 124, 119) 40%);
+	--accent-color-soft: color-mix(in srgb, var(--accent-color), rgb(129, 112, 112) 20%);
+	--accent-color-light: color-mix(in srgb, var(--accent-color), rgb(124, 111, 76) 90%);
 	--input-color: color-mix(in srgb, var(--background-color), var(--foreground-color) 30%);
 }
 
@@ -38,11 +38,11 @@
 	} */
 
 	[data-background='dark'] {
-		@apply bg-gray dark:bg-[var(--background-variant-color)];
+		@apply bg-stone-300 dark:bg-[var(--background-variant-color)] rounded-md;
 	}
 
 	:root:not(.dark) [data-background='dark'] {
-		.inline-flex[class*='bg-gray'] {
+		lg .inline-flex[class*='bg-gray'] {
 			@apply bg-[#172940] text-white hover:bg-accent;
 		}
 	}

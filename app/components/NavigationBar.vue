@@ -46,18 +46,11 @@ const handleLinkClick = () => {
 </script>
 
 <template>
-	<header ref="navigationRef" class="sticky top-0 z-50 w-full bg-background text-foreground">
+	<header ref="navigationRef" class=" sticky top-0 z-50 w-full bg-background shadow-md text-foreground">
 		<Container class="flex items-center justify-between p-4">
 			<NuxtLink to="/" class="flex-shrink-0">
 				<img :src="lightLogoUrl" alt="Logo" class="w-[400px] h-auto dark:hidden" width="400" height="200" />
-				<img
-					v-if="darkLogoUrl"
-					:src="darkLogoUrl"
-					alt="Logo (Dark Mode)"
-					class="w-[400px] h-auto hidden dark:block"
-					width="400"
-					height="200"
-				/>
+
 			</NuxtLink>
 
 			<nav class="flex items-center gap-4">
@@ -151,7 +144,7 @@ const handleLinkClick = () => {
 					</DropdownMenu>
 				</div>
 
-				<ThemeToggle />
+				<!-- <ThemeToggle /> -->
 			</nav>
 		</Container>
 	</header>

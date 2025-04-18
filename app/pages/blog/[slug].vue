@@ -51,10 +51,20 @@ useSeoMeta({
 </script>
 <template>
 	<div v-if="post" ref="wrapperRef">
-		<Container class="py-12">
-			<div v-if="post.image" class="mb-8 w-full">
+		<Container class="py-12 flex flex-col items-center">
+			<Headline
+				:headline="post.title"
+				as="h2"
+				class="!text-accent mb-4 text-center w-[50%]"
+				:data-directus="setAttr({ collection: 'posts', item: post.id, fields: ['title', 'slug'], mode: 'popover' })"
+			/>
+			<Separator class="h-[1px] bg-gray-400 my-8" />
+			<p>{{ post.description }}</p>
+			<Separator class="h-[1px] bg-gray-400 my-8" />
+
+			<div v-if="post.image" class="mb-2 px-4 w-full flex justify-center">
 				<div
-					class="relative w-full h-[400px] overflow-hidden rounded-lg"
+					class="relative  h-[500px] overflow-hidden rounded-lg"
 					:data-directus="
 						setAttr({ collection: 'posts', item: post.id, fields: ['image', 'meta_header_image'], mode: 'modal' })
 					"
@@ -68,18 +78,10 @@ useSeoMeta({
 					/>
 				</div>
 			</div>
+			<Separator class="h-[1px] bg-gray-400 my-8" />
 
-			<Headline
-				:headline="post.title"
-				as="h2"
-				class="!text-accent mb-4"
-				:data-directus="setAttr({ collection: 'posts', item: post.id, fields: ['title', 'slug'], mode: 'popover' })"
-			/>
-
-			<Separator class="h-[1px] bg-gray-300 my-8" />
-
-			<div class="grid grid-cols-1 lg:grid-cols-[minmax(0,_2fr)_400px] gap-12">
-				<main class="text-left">
+			<div class="w-[70%] flex justify-center ">
+				<main class="w-full pb-12">
 					<Text
 						:content="post.content || ''"
 						:data-directus="
@@ -92,36 +94,8 @@ useSeoMeta({
 						"
 					/>
 				</main>
-
-				<aside class="space-y-6 p-6 rounded-lg max-w-[496px] h-fit bg-background-muted">
-					<div
-						v-if="author"
-						class="flex items-center space-x-4"
-						:data-directus="setAttr({ collection: 'posts', item: post.id, fields: 'author', mode: 'popover' })"
-					>
-						<DirectusImage
-							v-if="author?.avatar"
-							:uuid="author?.avatar"
-							:alt="userName(author)"
-							class="rounded-full object-cover size-[48px]"
-							:width="48"
-							:height="48"
-						/>
-
-						<p v-if="author" class="font-bold">{{ userName(author) }}</p>
-					</div>
-
-					<p
-						v-if="post.description"
-						:data-directus="setAttr({ collection: 'posts', item: post.id, fields: 'description', mode: 'popover' })"
-					>
-						{{ post.description }}
-					</p>
-
-					<div class="flex justify-start">
-						<ShareDialog :post-url="postUrl.toString()" :post-title="post.title" />
-					</div>
-					<div>
+			</div>
+			<div >
 						<Separator class="h-[1px] bg-gray-300 my-4" />
 						<h3 class="font-bold mb-4">Related Posts</h3>
 						<div class="space-y-4">
@@ -144,8 +118,6 @@ useSeoMeta({
 							</NuxtLink>
 						</div>
 					</div>
-				</aside>
-			</div>
 		</Container>
 	</div>
 	<div v-else class="text-center text-xl mt-[20%]">404 - Post Not Found</div>

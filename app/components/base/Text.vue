@@ -49,7 +49,7 @@ onMounted(() => {
 				'md:prose-base lg:prose-lg': size === 'md',
 				'prose-lg lg:prose-xl': size === 'lg',
 			},
-			'prose dark:prose-invert text-foreground prose-img:rounded-lg prose-img:border-2 prose-img:border-gray-500 prose-headings:font-display',
+			'w-full  dark:prose-invert text-foreground prose-img:rounded-lg prose-img:border-2 prose-img:border-gray-500 prose-headings:font-display',
 		]"
 		v-html="content"
 	/>

@@ -42,7 +42,7 @@ const darkLogoUrl = computed(() =>
 </script>
 
 <template>
-	<footer v-if="globals" ref="footerRef" class="bg-gray dark:bg-[var(--background-variant-color)] py-16">
+	<footer v-if="globals" ref="footerRef" class="shadow-xl bg-[var(--background-variant-color)] py-16">
 		<Container class="text-foreground dark:text-white">
 			<div class="flex flex-col md:flex-row justify-between items-start gap-8 pt-8">
 				<div class="flex-1">
