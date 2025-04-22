@@ -100,7 +100,7 @@ const darkLogoUrl = computed(() =>
 								</a>
 							</li>
 						</ul>
-						<ThemeToggle class="dark:text-white mt-4" />
+						<!-- <ThemeToggle class="dark:text-white mt-4" /> -->
 					</nav>
 				</div>
 			</div>
