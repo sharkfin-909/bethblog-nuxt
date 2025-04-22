@@ -46,32 +46,13 @@ defineProps<HeroProps>();
 				:data-directus="setAttr({ collection: 'block_hero', item: data.id, fields: 'tagline', mode: 'popover' })"
 			/>
 			<Headline
+				class="pb-5"
 				:headline="data.headline"
 				:data-directus="setAttr({ collection: 'block_hero', item: data.id, fields: 'headline', mode: 'popover' })"
 			/>
-			<Text
-				v-if="data.description"
-				:content="data.description"
-				:data-directus="setAttr({ collection: 'block_hero', item: data.id, fields: 'description', mode: 'popover' })"
-			/>
-
 			<div
-				v-if="data.button_group?.buttons?.length"
-				class="mt-6"
-				:class="{ 'flex justify-center': data.layout === 'image_center' }"
-			>
-				<ButtonGroup
-					:buttons="data.button_group.buttons"
-					:data-directus="
-						setAttr({ collection: 'block_button_group', item: data.button_group?.id, fields: 'buttons', mode: 'modal' })
-					"
-				/>
-			</div>
-		</div>
-
-		<div
 			v-if="data.image"
-			class="relative w-full"
+			class="relative w-full "
 			:class="{
 				'md:w-3/4 xl:w-2/3 h-[400px]': data.layout === 'image_center',
 				'md:w-1/2 h-[562px]': data.layout !== 'image_center',
@@ -88,5 +69,27 @@ defineProps<HeroProps>();
 				"
 			/>
 		</div>
+			<Text
+				v-if="data.description"
+				:content="data.description"
+				:data-directus="setAttr({ collection: 'block_hero', item: data.id, fields: 'description', mode: 'popover' })"
+			/>
+
+			<div
+				v-if="data.button_group?.buttons?.length"
+				class="mt-6"
+				:class="{ 'flex justify-center': data.layout === 'image_center' }"
+			>
+				<ButtonGroup
+				class="border border-stone-500 rounded-md"
+					:buttons="data.button_group.buttons"
+					:data-directus="
+						setAttr({ collection: 'block_button_group', item: data.button_group?.id, fields: 'buttons', mode: 'modal' })
+					"
+				/>
+			</div>
+		</div>
+
+
 	</section>
 </template>
